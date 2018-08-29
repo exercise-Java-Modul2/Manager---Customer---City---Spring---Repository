@@ -5,9 +5,9 @@
     <title>Detail information customer</title>
 </head>
 <body>
-<h1>Detail information customer</h1>
+<h1 th:text="#{detail.customer}"></h1>
 <p>
-    <a href="/customers">Back to customer list</a>
+    <a href="/customers" th:text="#{back.customers}"></a>
 </p>
 <table border="1">
     <tr>
@@ -15,15 +15,15 @@
         <td th:text="${customer.id}"></td>
     </tr>
     <tr>
-        <td>FirstName:</td>
+        <td th:text="#{firstName}"></td>
         <td th:text="${customer.firstName}"></td>
     </tr>
     <tr>
-        <td>LastName:</td>
+        <td th:text="#{lastName}"></td>
         <td th:text="${customer.lastName}"></td>
     </tr>
     <tr>
-        <td>Province:</td>
+        <td th:text="#{province}"></td>
         <td th:text="${customer.province.name}"></td>
     </tr>
 </table>

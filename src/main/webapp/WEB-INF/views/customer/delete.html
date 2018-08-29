@@ -5,25 +5,25 @@
     <title>Delete Customer</title>
 </head>
 <body>
-<h1>Delete customer</h1>
-<h2>Are you sure?</h2>
+<h1 th:text="#{delete.customer}"></h1>
+<h2 th:text="#{sure}"></h2>
 <p>
-    <a href="/customers">Back to customer list</a>
+    <a href="/customers" th:text="#{back.customers}"></a>
 </p>
 <form th:action="@{/delete-customer}" th:object="${customer}" method="post">
     <input type="hidden" th:field="*{id}"/>
     <table>
         <tr>
-            <td>FirstName:</td>
+            <td th:text="#{firstName}"></td>
             <td th:text="${customer.firstName}"></td>
         </tr>
         <tr>
-            <td>LastName:</td>
+            <td th:text="#{lastName}"></td>
             <td th:text="${customer.lastName}"></td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Delete"></td>
+            <td><input type="submit" th:value="#{delete}"></td>
         </tr>
     </table>
 </form>

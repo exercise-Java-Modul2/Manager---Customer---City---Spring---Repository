@@ -5,40 +5,43 @@
     <title>Show list Customer</title>
 </head>
 <body>
-<h1>Customers</h1>
+<h1 th:text="#{list.customer}"></h1>
+<p>
+    <span th:text="#{language}"></span>: <a href="?lang=en">English</a>  |  <a href="?lang=vn">Vietnamese</a>
+</p>
 <form>
-    Search by firstName:
+    <span th:text="#{search}"></span>
     <input type="text" name="s"/>
-    <input type="submit" value="Search"/>
+    <input type="submit" th:value="#{search.value}"/>
 </form>
 <p>
-    <a href="/create-customer">Create new customer</a>
+    <a href="/create-customer" th:text="#{create.customer}"></a>
 </p>
 <table border="1">
     <tr>
-        <td>FirstName</td>
-        <td>LastName</td>
-        <td>Province</td>
-        <td>Edit</td>
-        <td>Delete</td>
-        <td>view</td>
+        <td th:text="#{firstName}"></td>
+        <td th:text="#{lastName}"></td>
+        <td th:text="#{province}"></td>
+        <td th:text="#{edit}"></td>
+        <td th:text="#{delete}"></td>
+        <td th:text="#{view}"></td>
     </tr>
     <th:block th:each="customer : ${customers}">
         <tr>
             <td th:text="${customer.firstName}"></td>
             <td th:text="${customer.lastName}"></td>
             <td th:text="${customer.province.name}"></td>
-            <td><a th:href="@{/update-customer/__${customer.id}__}">edit</a></td>
-            <td><a th:href="@{/delete-customer/__${customer.id}__}">delete</a></td>
-            <td><a th:href="@{/view-customer/__${customer.id}__}">view</a></td>
+            <td><a th:href="@{/update-customer/__${customer.id}__}" th:text="#{edit}"></a></td>
+            <td><a th:href="@{/delete-customer/__${customer.id}__}" th:text="#{delete}"></a></td>
+            <td><a th:href="@{/view-customer/__${customer.id}__}" th:text="#{view}"></a></td>
         </tr>
     </th:block>
 </table>
 <div>
-    <a th:href="@{'/customers'(page=${customers.number - 1})}" th:if="${customers.hasPrevious()}">Previous</a>
+    <a th:href="@{'/customers'(page=${customers.number - 1})}" th:if="${customers.hasPrevious()}" th:text="#{previous}"></a>
     <span th:text="${customers.number + 1}"></span>&nbsp;&nbsp;&nbsp;&nbsp;
     ||&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${customers.totalPages}"></span>
-    <a th:href="@{'/customers'(page=${customers.number + 1})}" th:if="${customers.hasNext()}">Next</a>
+    <a th:href="@{'/customers'(page=${customers.number + 1})}" th:if="${customers.hasNext()}" th:text="#{next}"></a>
 </div>
 </body>
 </html>

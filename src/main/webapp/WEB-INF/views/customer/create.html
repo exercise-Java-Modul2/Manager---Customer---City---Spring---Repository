@@ -5,9 +5,9 @@
     <title>Create new Customer</title>
 </head>
 <body>
-<h1>Create new customer</h1>
+<h1 th:text="#{create.customer}"></h1>
 <p>
-    <a href="/customers">Customer list</a>
+    <a href="/customers" th:text="#{back.customers}"></a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
@@ -15,15 +15,15 @@
 <form th:action="@{/create-customer}" th:object="${customer}" method="post">
     <table>
         <tr>
-            <td>FirstName:</td>
+            <td th:text="#{firstName}"></td>
             <td><input type="text" th:field="*{firstName}"></td>
         </tr>
         <tr>
-            <td>LastName:</td>
+            <td th:text="#{lastName}"></td>
             <td><input type="text" th:field="*{lastName}"></td>
         </tr>
         <tr>
-            <td>Province:</td>
+            <td th:text="#{province}"></td>
             <td>
                 <select th:field="*{province}">
                     <option th:each="p:${provinces}" th:value="${p.id}" th:text="${p.name}"></option>
@@ -32,7 +32,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Create customer"></td>
+            <td><input type="submit" th:value="#{create.customer}"></td>
         </tr>
     </table>
 </form>
