@@ -5,14 +5,14 @@
     <title>Provinces</title>
 </head>
 <body>
-<a href="/create-province">Create new province</a>
-<h1>Provinces</h1>
+<a href="/create-province" th:text="#{create.province}"></a>
+<h1 th:text="#{list.province}"></h1>
 <table border="1">
     <tr>
-        <th>Name</th>
-        <th>Edit</th>
-        <th>Delete</th>
-        <th>View</th>
+        <th th:text="#{name}"></th>
+        <th th:text="#{edit}"></th>
+        <th th:text="#{delete}"></th>
+        <th th:text="#{view}"></th>
     </tr>
     <th:block th:each="province : ${provinces}">
         <tr>

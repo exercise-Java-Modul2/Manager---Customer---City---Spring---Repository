@@ -5,21 +5,21 @@
     <title>Delete province</title>
 </head>
 <body>
-<h1>Delete province</h1>
-<h2>Are you sure?</h2>
+<h1 th:text="#{delete.province}"></h1>
+<h2 th:text="#{sure}"></h2>
 <p>
-    <a href="/provinces">Back to province list</a>
+    <a href="/provinces" th:value="#{back.provinces}"></a>
 </p>
 <form th:action="@{/delete-province}" th:object="${province}" method="post">
     <input type="hidden" th:field="*{id}"/>
     <table>
         <tr>
-            <td>Name:</td>
+            <td th:value="#{name}"></td>
             <td th:text="*{name}"></td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Delete"></td>
+            <td><input type="submit" th:value="#{delete}"></td>
         </tr>
     </table>
 </form>

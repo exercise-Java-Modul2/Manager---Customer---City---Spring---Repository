@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>View province</title>
 </head>
 <body>
-<h1>View province: <span th:text="${province.name}"></span></h1>
-<a href="/provinces">Province list</a>
+<h1><span th:text="#{view.province}"></span><span th:text="${province.name}"></span></h1>
+<a href="/provinces" th:text="#{back.provinces}"></a>
 <table border="1">
     <tr>
-        <th>First name</th>
-        <th>Last name</th>
+        <th th:text="#{firstName}"></th>
+        <th th:text="#{lastName}"></th>
     </tr>
     <th:block th:each="customer : ${customers}">
         <tr>

@@ -5,9 +5,9 @@
     <title>Create new Province</title>
 </head>
 <body>
-<h1>Create new province</h1>
+<h1 th:text="#{create.province}"></h1>
 <p>
-    <a href="/provinces">Province list</a>
+    <a href="/provinces" th:text="#{back.provinces}"></a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
@@ -15,12 +15,12 @@
 <form th:action="@{/create-province}" th:object="${province}" method="post">
     <table>
         <tr>
-            <td>Name:</td>
+            <td th:text="#{name}"></td>
             <td><input type="text" th:field="*{name}"></td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Create province"></td>
+            <td><input type="submit" th:value="#{create.province}"></td>
         </tr>
     </table>
 </form>
